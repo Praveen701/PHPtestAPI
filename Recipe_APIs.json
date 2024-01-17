@@ -145,6 +145,57 @@
 			"response": []
 		},
 		{
+			"name": "Update Rating",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "b270165c321014ac15ff5d4f92eef6b0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rating\": 2\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost/api_test/api/update-rating.php?id=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api_test",
+						"api",
+						"update-rating.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Delete Product",
 			"request": {
 				"method": "DELETE",
