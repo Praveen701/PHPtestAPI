@@ -1,0 +1,277 @@
+{
+	"info": {
+		"_postman_id": "16fb2665-a45c-430a-b44a-cb52632e277b",
+		"name": "Recipe APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"test\",\r\n    \"email\": \"rest@df.cpm\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api_test/auth/register.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api_test",
+								"auth",
+								"register.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"test\",\r\n     \"password\" : \"7890poiu\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost/api_test/auth/login.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api_test",
+								"auth",
+								"login.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get All Products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Length",
+						"value": "application/json",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Paul\",\r\n    \"prep_time\": \"10 min\",\r\n     \"difficulty\": \"2\",\r\n      \"vegetarian\": true,\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost/api_test/api/get-all-products.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api_test",
+						"api",
+						"get-all-products.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product Info",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/api_test/api/get-product.php?id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api_test",
+						"api",
+						"get-product.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api_test/api/delete-product.php?id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api_test",
+						"api",
+						"delete-product.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Conn",
+						"value": "",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Paul\",\r\n    \"prep_time\": \"10 min\",\r\n    \"difficulty\": \"2\",\r\n    \"vegetarian\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api_test/api/update-product.php?id=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api_test",
+						"api",
+						"update-product.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Chicken Gravy\",\r\n    \"prep_time\": \"25 min\",\r\n    \"difficulty\": \"1\",\r\n    \"vegetarian\": \"false\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api_test/api/create.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api_test",
+						"api",
+						"create.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Product",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Gra\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api_test/api/search.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api_test",
+						"api",
+						"search.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
