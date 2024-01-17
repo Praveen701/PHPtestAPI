@@ -3,7 +3,7 @@ include("../class/crud.php");
 header("Access-Control-Allow-Origin: *");
 header("Content-type:application/json");
 header("Content-Type: application/x-www-form-urlencoded");
- 
+$crud = new Crud();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents("php://input"), true);
 
@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
         $username = $data['username'];
         $password = password_hash($data['password'], PASSWORD_DEFAULT);
-
+        $jwt_token = $crud->generateToken(rand(10, 99));
         $conn = new mysqli('localhost', 'root', '', 'recipes');
         $stmt = $conn->prepare('SELECT id, password FROM users WHERE username = ?');
         $stmt->bind_param('s', $username);
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($stmt->fetch() && password_verify($password, $hashedPassword)) {
 
-            echo json_encode(['message' => 'Login successful', 'user_id' => $userId]);
+            echo json_encode(['message' => 'Login successful', 'token' => $jwt_token]);
         } else {
 
             echo json_encode(['error' => 'Login failed']);

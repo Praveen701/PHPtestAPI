@@ -7,7 +7,7 @@ use Firebase\JWT\JWT;
 class Crud extends Connection
 {
 
-  private static $key = "your_secret_key"; // Replace with a strong secret key
+  private static $key = "your_secret_key"; 
     private static $tokenExpireTime = 3600; 
 
   public function __construct()
@@ -22,8 +22,8 @@ class Crud extends Connection
      $expirationTime = $issuedAt + self::$tokenExpireTime;
 
      $token = [
-         "iss" => "your_issuer", // replace with your issuer
-         "aud" => "your_audience", // replace with your audience
+         "iss" => "your_issuer",
+         "aud" => "your_audience", 
          "iat" => $issuedAt,
          "exp" => $expirationTime,
          "data" => [

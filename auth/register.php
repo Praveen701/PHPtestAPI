@@ -20,7 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $sql = "INSERT INTO users (username, password, email, token) VALUES ('$username', '$password', '$email' , '$jwt_token')";
 
             $res = $crud->create_user($sql); 
-            $_SESSION["loggedin"] = true;
 
            echo json_encode(["message" => "User registered successfully", "token" => $jwt_token]);
       
